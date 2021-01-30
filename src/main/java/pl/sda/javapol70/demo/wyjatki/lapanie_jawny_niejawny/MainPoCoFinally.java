@@ -11,20 +11,24 @@ import java.io.PrintWriter;
 public class MainPoCoFinally {
     public static void main(String[] args) {
 
-        instrukcja();
+        // najpierw wykona się finally, potem wypisze się wynik
+        System.out.println(instrukcja());
     }
 
     private static int instrukcja() {
         PrintWriter writer = null; // stwórz wypisywacz
         try {
-            new PrintWriter("plik.txt"); // otwórz plik (potencjalnie błąd)
+            writer = new PrintWriter("plik.txt"); // otwórz plik (potencjalnie błąd)
+//            new PrintWriter("plik.txt"); // Null pointer exception
             // Null..
             writer.println("cos"); // wypisz cos
 
-            return 0;
+            return 0; // -> i potem wykona się finally
         } catch (IOException ioe) { //input/output exception (operacje dyskowe/klawiatura wejście/wyjście)
             System.out.println(ioe);
-            return 1;
+
+            return 1; // -> i potem wykona się finally
+            // w przypadku wyjątku którego nie przechwyciliśmy -> i potem wykona się finally.
         } finally {
             System.out.println("Finally, skończyłem tą instrukcję.");
             if (writer != null) { // jeśli jest różny to zamknij
