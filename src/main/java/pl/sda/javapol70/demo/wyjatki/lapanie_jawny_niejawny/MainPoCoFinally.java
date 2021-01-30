@@ -1,0 +1,36 @@
+package pl.sda.javapol70.demo.wyjatki.lapanie_jawny_niejawny;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * @Author amen
+ * @Created 30.01.2021 12:37
+ * @Project demo_javapol70
+ */
+public class MainPoCoFinally {
+    public static void main(String[] args) {
+
+        instrukcja();
+    }
+
+    private static int instrukcja() {
+        PrintWriter writer = null; // stwórz wypisywacz
+        try {
+            new PrintWriter("plik.txt"); // otwórz plik (potencjalnie błąd)
+            // Null..
+            writer.println("cos"); // wypisz cos
+
+            return 0;
+        } catch (IOException ioe) { //input/output exception (operacje dyskowe/klawiatura wejście/wyjście)
+            System.out.println(ioe);
+            return 1;
+        } finally {
+            System.out.println("Finally, skończyłem tą instrukcję.");
+            if (writer != null) { // jeśli jest różny to zamknij
+                writer.close();
+            }
+            System.out.println("Zamykam");
+        }
+    }
+}
