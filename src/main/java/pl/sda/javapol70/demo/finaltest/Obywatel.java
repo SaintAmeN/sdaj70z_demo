@@ -1,4 +1,4 @@
-package pl.sda.zadania.finaltest;
+package pl.sda.javapol70.demo.finaltest;
 
 import java.util.Objects;
 
