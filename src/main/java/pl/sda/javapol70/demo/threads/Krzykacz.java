@@ -18,6 +18,10 @@ public class Krzykacz implements Runnable{
         this.mamKrzyczec = true;
     }
 
+    public void setKrzyk(String krzyk) {
+        this.krzyk = krzyk;
+    }
+
     public void krzycz() {
         System.out.println(System.currentTimeMillis() + " - " + krzyk + "!");
     }
@@ -29,8 +33,10 @@ public class Krzykacz implements Runnable{
             // instrukcja usypiania.
             // chcemy, żeby wątek zrobił przerwę 1s pomiędzy kolejnymi krzykami.
             // 3.4 GHz - 3 400 000 000
+            // 1 ms = 3 400 000
+            // 1 000 000
             try {
-                Thread.sleep(1);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 // brak obsługi, nic nie zrobimy. po prostu ktoś go wybudził.
             }
