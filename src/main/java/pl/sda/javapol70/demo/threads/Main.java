@@ -14,8 +14,6 @@ public class Main {
 //        Runnable target;
 
         Thread wątekKrzykacz1 = new Thread(kA);
-        wątekKrzykacz1.run();
-
         wątekKrzykacz1.start();
         System.out.println("Stoję, czy wykonuję dalej instrukcje?");
 
