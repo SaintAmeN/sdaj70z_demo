@@ -30,6 +30,10 @@ public class OptionalTest {
      * @return jeśli wartość jest dostępna, to jest liczbą, jeśli nie, to nie
      */
     private static Optional<Integer> obliczDystans(Point p1, Point p2){
+        String tekst = "ja";
+        if(tekst == "ja"){
+
+        }
         return Optional.empty();
     }
 }
