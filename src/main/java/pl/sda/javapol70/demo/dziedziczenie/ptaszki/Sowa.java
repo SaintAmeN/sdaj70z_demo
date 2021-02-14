@@ -12,6 +12,10 @@ public class Sowa implements Ptak {
     }
 
     public void poluj(){
+        System.out.println("Fruuuuu... lece na myszy");
+    }
 
+    private void cosInnego(){
+        System.out.println("Fruuuuu... lece na myszy");
     }
 }
