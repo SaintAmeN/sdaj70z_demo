@@ -3,6 +3,7 @@ package pl.sda.javapol70.demo.files.zapis;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.DatagramSocketImpl;
 
 /**
  * @Author amen
@@ -13,9 +14,12 @@ public class MainZapis {
     public static void main(String[] args) {
         String filename = "plik.txt";
 
-        // Writer       // bajty
-        // PrintWriter  // tekst
-        // FileWriter   // tekst do pliku
+        // Zapis:
+        // - Writer (czyta) [bity/bajty skądś]
+        // - Input/Output Writer [sieci/urządzenia/dyski/pliki, bajty, tablice bajtów]
+        // - OutputStreamWriter (System.out - konsola)
+        // -- FileWriter
+        // -- PrintWriter
 
 //        try-catch
 //        try {
@@ -32,12 +36,19 @@ public class MainZapis {
 //        try-with-resources
         // jeśli append nie jest dostarczone lub jest false, to przy otwieraniu pliku
         // plik zostanie nadpisany
-        try (FileWriter writer = new FileWriter(new File(filename), true)){
-            writer.write("Linia tekstu.");
-            writer.flush(); // wypchnij i upewnij sie ze zapisze na dysk TERAZ
+        try (FileWriter writer = new FileWriter(new File(filename), true)) {
 
+//            for (int i = 0; i < 10; i++) {
+                writer.write("Linia tekstu.\n");
+                writer.flush(); // wypchnij i upewnij sie ze zapisze na dysk TERAZ
+
+                System.out.println("Napisałem linie.");
+//                Thread.sleep(10000);
+//            }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        } /*catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
     }
 }
